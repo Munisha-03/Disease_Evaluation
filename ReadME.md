@@ -19,7 +19,7 @@ An AI-powered medical information API built using **FastAPI**, **LangChain**, an
 
 ## 🛠 Tech Stack
 
-- **Backend**: FastAPI
+- **Backend**: FastAPI & Streamlit
 - **LLM Framework**: LangChain
 - **LLM Provider**: Google Gemini (`gemini-2.5-flash`)
 - **Data Validation**: Pydantic
@@ -34,11 +34,11 @@ An AI-powered medical information API built using **FastAPI**, **LangChain**, an
 Disease-llm/
 │
 ├── app.py              # FastAPI entry point
-├── schemas.py          # Pydantic models
-├── parsers.py          # LangChain output parsers
-├── prompts.py          # Prompt templates
-├── llm.py              # LLM configuration
-├── services.py         # Core business logic
+├── streamlit_app.py    # Streamlit Web UI
+├── datatypes.py        # Pydantic models
+├── parser.py           # LangChain output parsers
+├── prompt.py           # Prompt templates
+├── main.py             # Core logic & LLM config
 ├── .env                # Environment variables (not committed)
 ├── requirements.txt
 └── README.md
@@ -107,15 +107,17 @@ GOOGLE_API_KEY=your_google_gemini_api_key_here
 
 ### 5️⃣ Run the Application
 
+#### 🔹 Streamlit Web UI (Recommended)
+```bash
+streamlit run streamlit_app.py
+```
+The web interface will be available at `http://localhost:8501`.
+
+#### 🔹 FastAPI Backend
 ```bash
 uvicorn app:app --reload
 ```
-
-Server will start at:
-
-```
-http://127.0.0.1:8000
-```
+The API will start at `http://127.0.0.1:8000`.
 
 ---
 
